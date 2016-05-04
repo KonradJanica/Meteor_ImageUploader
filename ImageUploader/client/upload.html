@@ -3,5 +3,9 @@
         Tags: <input type="text">
         Description: <input type="text">
         <input type="file" id="imageUpload">
+        <input type="submit">
     </form>
+        {{#if errorMessage}}
+            <div class="upload-error">{{errorMessage}}</div>
+        {{/if}}
 </template>
