@@ -13,9 +13,8 @@ Template.upload.events({
         }
 
         uploadFail = false;
-        images.insert(fsFile,function(err,result){
+        var fileObj = images.insert(fsFile, function(err) {
             if (err) {
-                console.log(result);
                 uploadFail = true;
                 template.uploadError.set("Image upload failed, only PNG, JPG, GIF allowed");
             }
@@ -25,11 +24,19 @@ Template.upload.events({
             console.log("File upload fail");
             return;
         }
+
+        
         template.uploadError.set("Image upload success");
 
-        const target = event.target;
-        const tag = target.tag.value;
-        const description = target.tag.value;
+        tagInput = event.target.tag.value;
+        console.log(tagInput);
+        descriptionInput = event.target.description.value;
+        console.log(descriptionInput);
 
+        detailedImages.insert({
+            image: fileObj,
+            tags: tagInput,
+            description: descriptionInput
+        });
     }
 });

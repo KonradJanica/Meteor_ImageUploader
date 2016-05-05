@@ -1,7 +1,5 @@
-imageStore = new FS.Store.GridFS("imageStore");
-
 images = new FS.Collection("images", {
-    stores: [imageStore],
+    stores: [new FS.Store.GridFS("imageStore")],
     filter: {
         maxSize: 20000000, // 20mb in bytes
         allow: {
@@ -18,6 +16,9 @@ images = new FS.Collection("images", {
     }
 });
 
+detailedImages = new Meteor.Collection('detailedImages');
+
 if(Meteor.isClient){
-  Meteor.subscribe('images');
+    Meteor.subscribe('images');
+    Meteor.subscribe('detailedImages');
 }

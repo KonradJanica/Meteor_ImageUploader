@@ -1,6 +1,6 @@
 Template.collection.helpers({
     showImages:function() {
-        return images.find();
+        return detailedImages.find();
     }
 });
 

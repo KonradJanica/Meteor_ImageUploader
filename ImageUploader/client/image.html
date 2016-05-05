@@ -1,6 +1,11 @@
 <template name="image">
     <li class="list-group-item">
-        <img src="{{this.url}}">
-        <!-- Insert tag, description, username here -->
+        <img src="{{this.image.url}}">
+        {{#if this.tags}}
+        <p><strong>Tags: </strong>{{this.tags}}</p>
+        {{/if}}
+        {{#if this.description}}
+        <p><strong>Description: </strong>{{this.description}}</p>
+        {{/if}}
     </li> 
 </template>
