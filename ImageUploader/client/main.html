@@ -1,10 +1,15 @@
 <head>
-    <title>simple</title>
+    <title>ImageUploader</title>
 </head>
 
 <body>
-    <h1>Welcome to Meteor!</h1>
+    <h1>ImageUploader</h1>
+    {{> loginButtons}}
 
-    {{> collection}}
-    {{> upload}}
+    {{#if currentUser}}
+        <hr>
+
+        {{> collection}}
+        {{> upload}}
+    {{/if}}
 </body>

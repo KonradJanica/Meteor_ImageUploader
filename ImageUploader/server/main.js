@@ -1,13 +1,19 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-    // Set allowable operations
+    // Setup images
     images.allow({
         insert:function(){return true;},
-        remove:function(){return true;},
     });
-    // Publish
     Meteor.publish('images',function(){
         return images.find();
+    });
+
+    // Setup detailedImages
+    detailedImages.allow({
+        insert:function(){return true;},
+    });
+    Meteor.publish('detailedImages',function(){
+        return detailedImages.find();
     });
 });
