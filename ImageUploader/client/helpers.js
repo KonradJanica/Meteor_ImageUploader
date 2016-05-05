@@ -1,6 +1,6 @@
 Template.collection.helpers({
     showImages:function() {
-        return detailedImages.find({userId: Meteor.userId()});
+        return images.find({'metadata.userId': Meteor.userId()});
     }
 });
 

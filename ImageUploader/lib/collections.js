@@ -16,9 +16,6 @@ images = new FS.Collection("images", {
     }
 });
 
-detailedImages = new Meteor.Collection('detailedImages');
-
 if(Meteor.isClient){
     Meteor.subscribe('images');
-    Meteor.subscribe('detailedImages');
 }

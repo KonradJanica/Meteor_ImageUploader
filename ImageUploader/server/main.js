@@ -8,12 +8,4 @@ Meteor.startup(() => {
     Meteor.publish('images',function(){
         return images.find();
     });
-
-    // Setup detailedImages
-    detailedImages.allow({
-        insert:function(){return true;},
-    });
-    Meteor.publish('detailedImages',function(){
-        return detailedImages.find();
-    });
 });
