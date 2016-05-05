@@ -9,7 +9,7 @@ Template.upload.events({
         var file = $('#imageUpload').get(0).files[0];
         fsFile = new FS.File(file);
         fsFile.metadata = {
-            // Add user priviledges here
+            userId: Meteor.userId(),
         }
 
         uploadFail = false;
@@ -24,7 +24,6 @@ Template.upload.events({
             console.log("File upload fail");
             return;
         }
-
         
         template.uploadError.set("Image upload success");
 
@@ -34,6 +33,7 @@ Template.upload.events({
         console.log(descriptionInput);
 
         detailedImages.insert({
+            userId: Meteor.userId(),
             image: fileObj,
             tags: tagInput,
             description: descriptionInput
